@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace CurrencyConverter
@@ -20,11 +21,20 @@ namespace CurrencyConverter
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Currency : Page
+    public sealed partial class CurrencyPage : Page
     {
-        public Currency()
+        public CurrencyPage()
         {
             this.InitializeComponent();
+            Rate rate = new Rate();
+
+            CurrencyList.ItemsSource = rate.Сurrencies.Values.ToList();
+            CurrencyList.DisplayMemberPath = "Name";
+        }
+
+        private void CurrencyList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

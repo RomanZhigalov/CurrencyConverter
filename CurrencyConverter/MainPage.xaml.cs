@@ -28,5 +28,13 @@ namespace CurrencyConverter
             this.InitializeComponent();
         }
 
+        private void ChangeButtonRight_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CurrencyPage));
+        }
+        private void ChangeButtonLeft_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CurrencyPage));
+        }
     }
 }

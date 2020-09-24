@@ -4,10 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Net;
-using Windows.Storage.Streams;
-using Windows.Web.Http;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -19,9 +15,6 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
 
 namespace CurrencyConverter
 {
@@ -38,7 +31,6 @@ namespace CurrencyConverter
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
         }
 
         /// <summary>
@@ -80,6 +72,8 @@ namespace CurrencyConverter
                 // Обеспечение активности текущего окна
                 Window.Current.Activate();
             }
+
+
         }
 
         /// <summary>
@@ -105,6 +99,5 @@ namespace CurrencyConverter
             //TODO: Сохранить состояние приложения и остановить все фоновые операции
             deferral.Complete();
         }
-
     }
 }

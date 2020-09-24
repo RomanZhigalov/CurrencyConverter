@@ -119,10 +119,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Currency.xaml.cs">
-      <DependentUpon>Currency.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Currency.cs" />
+    <Compile Include="Rate.cs" />
+    <Compile Include="CurrencyPage.xaml.cs">
+      <DependentUpon>CurrencyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -148,7 +149,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Currency.xaml">
+    <Page Include="CurrencyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -6,11 +6,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid >
-        <StackPanel>
-            <TextBlock Name="Textblock1" Height="723"></TextBlock>
-        </StackPanel>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="800" d:DesignHeight="1000">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="200*"/>
+            <RowDefinition Height="422*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Конвертер валют" FontSize="30" FontFamily="Cambria Math" Foreground="#FFC1C1C1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox x:Name="ResultTextBoxLeft" Grid.Column="0" Grid.Row="1" MaxLength="40" PlaceholderText="Введите сумму" Height="100" Width="200" HorizontalAlignment="Center" FontSize="25" FontFamily="Cambria Math"/>
+        <TextBox x:Name="ResultTextBoxRight" Grid.Column="1" Grid.Row="1" MaxLength="40" PlaceholderText="Введите сумму" Height="100" Width="200" HorizontalAlignment="Center" FontSize="25" FontFamily="Cambria Math"/>
+        <TextBlock x:Name="CurrentCurrencyTextLeft" Grid.Column="0" Grid.Row="2" Text ="RUB" HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Center" FontFamily="Cambria Math"/>
+        <TextBlock x:Name="CurrentCurrencyTextRight" Grid.Column="1" Grid.Row="2" Text ="USD" HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Center" FontFamily="Cambria Math"/>
+        <Button x:Name="ChangeButtonLeft" Grid.Column="0" Grid.Row="3" Width="200" Height="100" Content="Изменить валюту" HorizontalAlignment="Center" FontSize="20" FontFamily="Cambria Math" Click="ChangeButtonLeft_Click"/>
+        <Button x:Name="ChangeButtonRight" Grid.Column="1" Grid.Row="3" Width="200" Height="100" Content="Изменить валюту" HorizontalAlignment="Center" FontSize="20" FontFamily="Cambria Math" Click="ChangeButtonRight_Click"/>
     </Grid>
 
 </Page>
