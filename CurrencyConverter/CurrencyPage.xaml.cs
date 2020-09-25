@@ -26,14 +26,22 @@ namespace CurrencyConverter
         public CurrencyPage()
         {
             this.InitializeComponent();
-            Rate rate = new Rate();
-
-            CurrencyList.ItemsSource = rate.Сurrencies.Values.ToList();
+            CurrencyList.ItemsSource = Rate.Сurrencies.Values.ToList();
             CurrencyList.DisplayMemberPath = "Name";
         }
 
         private void CurrencyList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Currency selected = (Currency)CurrencyList.SelectedItem;
+            
+            if (Application.Current.Resources["curLeft"] == null)
+            {
+                Application.Current.Resources["curLeft"] = selected;
+            }
+            if (Application.Current.Resources["curRight"] == null)
+            {
+                Application.Current.Resources["curRight"] = selected;
+            }
             Frame.Navigate(typeof(MainPage));
         }
     }

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -22,18 +24,19 @@ namespace CurrencyConverter
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
         public MainPage()
         {
             this.InitializeComponent();
-        }
 
-        private void ChangeButtonRight_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(CurrencyPage));
         }
         private void ChangeButtonLeft_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Resources["curLeft"] = null;
+            Frame.Navigate(typeof(CurrencyPage));
+        }
+        private void ChangeButtonRight_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Resources["curRight"] = null;
             Frame.Navigate(typeof(CurrencyPage));
         }
     }

@@ -24,5 +24,10 @@ namespace CurrencyConverter
             Value = value;
             Nominal = nominal;
         }
+
+        public Currency()
+        {
+
+        }
     }
 }

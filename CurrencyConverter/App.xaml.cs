@@ -31,6 +31,7 @@ namespace CurrencyConverter
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
         }
 
         /// <summary>
@@ -40,6 +41,8 @@ namespace CurrencyConverter
         /// <param name="e">Сведения о запросе и обработке запуска.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            Rate.LoadRateToDictionary();
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Не повторяйте инициализацию приложения, если в окне уже имеется содержимое,
@@ -72,7 +75,6 @@ namespace CurrencyConverter
                 // Обеспечение активности текущего окна
                 Window.Current.Activate();
             }
-
 
         }
 
