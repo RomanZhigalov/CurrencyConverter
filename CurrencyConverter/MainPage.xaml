@@ -22,8 +22,8 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Конвертер валют" FontSize="30" FontFamily="Cambria Math" Foreground="#FFC1C1C1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <TextBox x:Name="ResultTextBoxLeft" Grid.Column="0" Grid.Row="1" MaxLength="40" PlaceholderText="Введите сумму" Height="100" Width="200" HorizontalAlignment="Center" FontSize="25" FontFamily="Cambria Math"/>
-        <TextBox x:Name="ResultTextBoxRight" Grid.Column="1" Grid.Row="1" MaxLength="40" PlaceholderText="Введите сумму" Height="100" Width="200" HorizontalAlignment="Center" FontSize="25" FontFamily="Cambria Math"/>
+        <TextBox x:Name="ResultTextBoxLeft" Grid.Column="0" Grid.Row="1" MaxLength="40" PlaceholderText="Введите сумму" Height="100" Width="200" HorizontalAlignment="Center" FontSize="25" FontFamily="Cambria Math" TextChanging="ResultTextBoxLeft_TextChanging"/>
+        <TextBox x:Name="ResultTextBoxRight" Grid.Column="1" Grid.Row="1" MaxLength="40" PlaceholderText="Введите сумму" Height="100" Width="200" HorizontalAlignment="Center" FontSize="25" FontFamily="Cambria Math" TextChanging="ResultTextBoxRight_TextChanging"/>
         <TextBlock x:Name="CurrentCurrencyTextLeft" Grid.Column="0" Grid.Row="2" Text="{Binding Source={StaticResource curLeft}, Path=CharCode}" HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Center" FontFamily="Cambria Math"/>
         <TextBlock x:Name="CurrentCurrencyTextRight" Grid.Column="1" Grid.Row="2" Text="{Binding Source={StaticResource curRight}, Path=CharCode}" HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Center" FontFamily="Cambria Math"/>
         <Button x:Name="ChangeButtonLeft" Grid.Column="0" Grid.Row="3" Width="200" Height="100" Content="Изменить валюту" HorizontalAlignment="Center" FontSize="20" FontFamily="Cambria Math" Click="ChangeButtonLeft_Click"/>

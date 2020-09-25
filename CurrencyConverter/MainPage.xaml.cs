@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Windows.Input;
+using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
@@ -29,6 +31,15 @@ namespace CurrencyConverter
             this.InitializeComponent();
 
         }
+        private void ResultTextBoxLeft_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            CheckDigit(sender);
+        }
+        private void ResultTextBoxRight_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
+        {
+            CheckDigit(sender);
+        }
+
         private void ChangeButtonLeft_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Resources["curLeft"] = null;
@@ -38,6 +49,14 @@ namespace CurrencyConverter
         {
             Application.Current.Resources["curRight"] = null;
             Frame.Navigate(typeof(CurrencyPage));
+        }
+
+        private void CheckDigit(TextBox text)
+        {
+            if (!Regex.IsMatch(text.Text, "^\\d*\\.?\\d*$") && text.Text != "")
+            {
+                text.Text = "";
+            }
         }
     }
 }
