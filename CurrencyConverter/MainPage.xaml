@@ -21,22 +21,26 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Fill="LightSkyBlue"/>
         <TextBlock Grid.Column="0" Grid.ColumnSpan="2" 
                    Text="Конвертер валют" FontSize="30" FontFamily="Cambria Math" 
-                   Foreground="#FFC1C1C1" HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" />
+                   Foreground="#FF270000" HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"/>
+
         <TextBox x:Name="ResultTextBoxLeft" Grid.Column="0" Grid.Row="1" 
                  MaxLength="20" PlaceholderText="Введите сумму" 
                  Height="40" Width="200" HorizontalAlignment="Center" 
                  FontSize="25" FontFamily="Cambria Math" 
                  TextChanging="ResultTextBoxLeft_TextChanging" 
-                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" UseLayoutRounding="True"/>
+                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" UseLayoutRounding="True">
+        </TextBox>
         <TextBox x:Name="ResultTextBoxRight" Grid.Column="1" Grid.Row="1"
                  MaxLength="20" PlaceholderText="Введите сумму" 
                  Height="40" Width="200" HorizontalAlignment="Center" 
                  FontSize="25" FontFamily="Cambria Math" 
                  TextChanging="ResultTextBoxRight_TextChanging" 
-                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"/>
+                 VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        </TextBox>
         <TextBlock x:Name="CurrentCurrencyCharCodeLeft" Grid.Column="0" Grid.Row="2" 
                    Text="{Binding Source={StaticResource curLeft}, Path=CharCode}" 
                    HorizontalAlignment="Center" FontSize="35" VerticalAlignment="Top" 

@@ -27,6 +27,7 @@ namespace CurrencyConverter
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -77,11 +78,7 @@ namespace CurrencyConverter
             temp = (Currency)Application.Current.Resources["curLeft"];
             Application.Current.Resources["curLeft"] = Application.Current.Resources["curRight"];
             Application.Current.Resources["curRight"] = temp;
-            string left = ResultTextBoxLeft.Text;
-            string right = ResultTextBoxRight.Text;
-            //Frame.Navigate(typeof(MainPage));
-            ResultTextBoxLeft.Text = right;
-            ResultTextBoxRight.Text = left;
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

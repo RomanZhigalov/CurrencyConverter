@@ -13,8 +13,9 @@
             <RowDefinition Height="60*"/>
             <RowDefinition Height="933*"/>
         </Grid.RowDefinitions>
+        <Rectangle Grid.Column="0" Grid.ColumnSpan="2" Fill="LightSkyBlue"/>
         <TextBlock Text="Конвертер валют" FontSize="30" 
-                   FontFamily="Cambria Math" Foreground="#FFC1C1C1" 
+                   FontFamily="Cambria Math" Foreground="#FF270000" 
                    HorizontalAlignment="Center" VerticalAlignment="Center" 
                    Height="35" Width="237" >
             <TextBlock.FocusVisualPrimaryBrush>
