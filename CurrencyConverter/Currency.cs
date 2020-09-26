@@ -9,38 +9,13 @@ using System.Runtime.CompilerServices;
 namespace CurrencyConverter
 {
 
-    public class Currency : INotifyPropertyChanged
+    public class Currency
     {
-        private string charCode;
-        private string name;
         public string ID { get; set; }
         public string NumCode { get; set; }
-
-        public string CharCode
-        {
-            get { return charCode; }
-            set
-            {
-                if (charCode != value)
-                {
-                    charCode = value;
-                    OnPropertyChanged("CharCode");
-                }
-            }
-        }
+        public string CharCode { get; set; }
         public int Nominal { get; set; }
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                if (name != value)
-                {
-                    name = value;
-                    OnPropertyChanged("Name");
-                }
-            }
-        }
+        public string Name { get; set; }
         public double Value { get; set; }
         public double Previous { get; set; }
 
@@ -56,14 +31,6 @@ namespace CurrencyConverter
         {
 
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
     }
-
 }
 

@@ -35,8 +35,8 @@ namespace CurrencyConverter
 
         public LoadPage()
         {
-            this.InitializeComponent();
             Rate.LoadRateToDictionary();
+            this.InitializeComponent();
             rootFrame = new Frame();
             this.Loaded += LoadPage_Loaded;
         }

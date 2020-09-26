@@ -119,7 +119,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converter.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="LoadPage.xaml.cs">
       <DependentUpon>LoadPage.xaml</DependentUpon>
