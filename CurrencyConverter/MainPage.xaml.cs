@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.ServiceModel.Channels;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
 
@@ -29,15 +30,14 @@ namespace CurrencyConverter
         public MainPage()
         {
             this.InitializeComponent();
-
         }
         private void ResultTextBoxLeft_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
-            CheckDigit(sender);
+            Converting(sender, ResultTextBoxRight, sender);
         }
         private void ResultTextBoxRight_TextChanging(TextBox sender, TextBoxTextChangingEventArgs args)
         {
-            CheckDigit(sender);
+            Converting(ResultTextBoxLeft, sender, sender);
         }
 
         private void ChangeButtonLeft_Click(object sender, RoutedEventArgs e)
@@ -51,12 +51,37 @@ namespace CurrencyConverter
             Frame.Navigate(typeof(CurrencyPage));
         }
 
-        private void CheckDigit(TextBox text)
+        private void Converting(TextBox leftBox, TextBox rightBox, object sender)
         {
-            if (!Regex.IsMatch(text.Text, "^\\d*\\.?\\d*$") && text.Text != "")
+            Currency left = (Currency)Application.Current.Resources["curLeft"];
+            Currency right = (Currency)Application.Current.Resources["curRight"];
+
+            string pattern = "^\\d*\\.?\\d*$";
+
+            double leftToRight = (right.Value / left.Value);
+            double rightToLeft = (left.Value / right.Value);
+
+            if(leftBox == sender && leftBox.Text != "" && Regex.IsMatch(leftBox.Text, pattern))
             {
-                text.Text = "";
+                rightBox.Text = (Convert.ToDouble(leftBox.Text) * rightToLeft).ToString();
             }
+            if (rightBox == sender && rightBox.Text != "" && Regex.IsMatch(rightBox.Text, pattern))
+            {
+                leftBox.Text = (Convert.ToDouble(rightBox.Text) * leftToRight).ToString();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Currency temp = new Currency();
+            temp = (Currency)Application.Current.Resources["curLeft"];
+            Application.Current.Resources["curLeft"] = Application.Current.Resources["curRight"];
+            Application.Current.Resources["curRight"] = temp;
+            string left = ResultTextBoxLeft.Text;
+            string right = ResultTextBoxRight.Text;
+            //Frame.Navigate(typeof(MainPage));
+            ResultTextBoxLeft.Text = right;
+            ResultTextBoxRight.Text = left;
         }
     }
 }

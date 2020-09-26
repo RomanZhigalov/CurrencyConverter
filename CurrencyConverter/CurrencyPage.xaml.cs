@@ -26,8 +26,7 @@ namespace CurrencyConverter
         public CurrencyPage()
         {
             this.InitializeComponent();
-            CurrencyList.ItemsSource = Rate.Сurrencies.Values.ToList();
-            CurrencyList.DisplayMemberPath = "Name";
+            CurrencyList.ItemsSource = Rate.Сurrencies.Values.ToList();            
         }
 
         private void CurrencyList_SelectionChanged(object sender, SelectionChangedEventArgs e)

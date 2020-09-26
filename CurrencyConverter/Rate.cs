@@ -14,7 +14,6 @@ namespace CurrencyConverter
 {
     class Rate
     {
-        //Переменная для хранения ссылки на файл с курсами валют
         private static Uri request = new Uri("https://www.cbr-xml-daily.ru/daily_json.js");
 
         //Словарь для хранения объектов класса Currency которые содержать информацию о курсах валют
@@ -34,10 +33,9 @@ namespace CurrencyConverter
             results = JsonConvert.DeserializeObject<Dictionary<string, JToken>>(response);
 
             //Конвертируем информацию а курсах валют в словарь 
-            Сurrencies = results["Valute"].ToObject<Dictionary<string, Currency>>();
+            Rate.Сurrencies = results["Valute"].ToObject<Dictionary<string, Currency>>();
             //Добавляем Российский рубль
-            Сurrencies.Add("RUB", new Currency("RUB", "Российский рубль", 1, 1));
-
+            Rate.Сurrencies.Add("RUB", new Currency("RUB", "Российский рубль", 1, 1));
         }
     }
 }

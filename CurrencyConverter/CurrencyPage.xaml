@@ -17,7 +17,24 @@
         <TextBlock Grid.Row="0" Text="Выберите валюту" FontSize="30" FontFamily="Cambria Math" Foreground="#FFC1C1C1" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <ScrollViewer Grid.Row="1">
             <StackPanel>
-                <ListBox Name="CurrencyList" SelectionChanged="CurrencyList_SelectionChanged"/>
+                <ListView Name="CurrencyList" SelectionChanged="CurrencyList_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="400" />
+                                    <ColumnDefinition Width="100*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Name}" Grid.Column="0" 
+                                           HorizontalAlignment="Stretch" 
+                                           FontSize="20" FontFamily="Cambria Math"/>
+                                <TextBlock Text="{Binding CharCode}" Grid.Column="1" 
+                                           HorizontalAlignment="Stretch" FontWeight="Bold" 
+                                           FontSize="25" FontFamily="Cambria Math"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    </ListView>
             </StackPanel>
         </ScrollViewer>
 
